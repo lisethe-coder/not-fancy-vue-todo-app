@@ -41,6 +41,11 @@ var app = new Vue({
 				return dayName;
 		}
 	},
+	computed: {
+		totalTodos() {
+			return this.todos.length;
+		}
+	},
 	methods: {
 		readTodo: function(e) {
 			var todo = e.target.value;
@@ -52,6 +57,6 @@ var app = new Vue({
 		},
 		addTodo() {
 			return;
-		}
+		},
 	}
 });

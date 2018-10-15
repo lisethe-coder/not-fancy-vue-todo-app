@@ -12,22 +12,22 @@
 			<h1 style="text-align: center;" class="title"> {{ title }} </h1>
 			<p style="color: pink; font-weight: bold;">{{getDay()}}</p>
 			<label for="title">What you want to do</label></br>
-			<input type="text" @change='readTodo' placeholder="Enter todo">
+			<input type="text" @change='readTodo' placeholder="Enter todo...">
 			<i @click='addTodo' class="fas fa-check fa-check-cir"></i>	
 		</div>
 	
 		<div class="todoList">
 			<h2 class="title">Todo List</h2> 
 			<ol>
-				<li v-for='todo in todos' class="todos">
-					<i @click="todos.splice(todo,1)" class="far fa-trash-alt" style="margin-right: 3px;"> </i>
-					<i @click='dones.push(todo) && todos.splice(todo,1)' class="far fa-square">
+				<li v-for='(todo, index) in todos' class="todos">
+					<i @click="todos.splice(index, 1)" class="far fa-trash-alt" style="margin-right: 3px;"> </i>
+					<i @click='dones.push(todo) && todos.splice(index,1)' class="far fa-square">
 						{{todo}}
 					</i>	
 				</li>
 			</ol>
-			<a @click= "deleteTodos" href="#">REMOVE ALL<i class="fa fa-trash-alt" style="margin-left: 35px;"></i>
-			</a>
+			<a @click= "deleteTodos" href="#">REMOVE ALL<i class="fa fa-trash-alt" style="margin-left: 25px;"></i>
+			</a>	
 		</div>
 
 		<div class="doneList">
@@ -39,6 +39,8 @@
 				</li>
 			</ol>
 		</div>
+		<p class="totalTasks"> <span style="color:#673AB7">Tasks:</span><strong style="color: grey; font-size: 24px; padding-left: 10px;">{{totalTodos}}</strong>
+		</p>
 	</div>
 	<script src="index.js"></script>
 </body>
