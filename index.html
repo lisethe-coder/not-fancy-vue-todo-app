@@ -1,0 +1,45 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Todo App </title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="intro">
+			<h1 style="text-align: center;" class="title"> {{ title }} </h1>
+			<p style="color: pink; font-weight: bold;">{{getDay()}}</p>
+			<label for="title">What you want to do</label></br>
+			<input type="text" @change='readTodo' placeholder="Enter todo">
+			<i @click='addTodo' class="fas fa-check fa-check-cir"></i>	
+		</div>
+	
+		<div class="todoList">
+			<h2 class="title">Todo List</h2> 
+			<ol>
+				<li v-for='todo in todos' class="todos">
+					<i @click="todos.splice(todo,1)" class="far fa-trash-alt" style="margin-right: 3px;"> </i>
+					<i @click='dones.push(todo) && todos.splice(todo,1)' class="far fa-square">
+						{{todo}}
+					</i>	
+				</li>
+			</ol>
+			<a @click= "deleteTodos" href="#">REMOVE ALL<i class="fa fa-trash-alt" style="margin-left: 35px;"></i>
+			</a>
+		</div>
+
+		<div class="doneList">
+			<h3>Done List</h3>
+			<ol>
+				<li v-for='done in dones' class="doneTodos" >
+					<i class="fas fa-check-square"></i>
+					{{done}}
+				</li>
+			</ol>
+		</div>
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>
