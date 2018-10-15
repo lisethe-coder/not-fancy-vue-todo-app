@@ -9,6 +9,6 @@ The app let the user:
 - Remove all todos
 - Display done tasks below done list section
 
-![TODO](Snip20181015_1.png)
+<img src="https://raw.githubusercontent.com/smartLisethe/not-fancy-vue-todo-app/master/images/todo-app.png">
 
 
